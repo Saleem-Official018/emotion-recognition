@@ -5,19 +5,16 @@ A deep learning project using RNN to recognize emotions from user-uploaded image
 ## Features
 - Real-time emotion detection from images
 - Support for 7 basic emotions (Angry, Disgust, Fear, Happy, Sad, Surprise, Neutral)
-- User-friendly web interface
+- User-friendly web interface using Streamlit
 - Pre-trained model for accurate predictions
-
-## Dataset
-📌 This project uses the FER-2013 Facial Expression Recognition dataset, available here:  
-🔗 https://www.kaggle.com/datasets/deadskull7/fer2013
+- Visual probability distribution of emotions
 
 ## Requirements
 - Python 3.8+
 - TensorFlow 2.x
-- OpenCV
-- Flask
+- Streamlit
 - NumPy
+- Matplotlib
 - Other dependencies listed in `requirements.txt`
 
 ## Installation
@@ -35,17 +32,18 @@ pip install -r requirements.txt
 ## Getting Started
 👉 To get started:
 
-1. Download the pre-trained model file (`emotion_rnn_model.h5`) and place it in the project directory.
+1. Make sure you have the pre-trained model file (`emotion_rnn_model.h5`) in the project directory.
 2. Run the following command to launch the app:
 ```bash
-python app.py
+streamlit run app.py
 ```
-3. Open your web browser and navigate to `http://localhost:5000`
+3. The app will automatically open in your default web browser
 
 ## Usage
-1. Click on the "Choose File" button to select an image
-2. Click "Upload" to process the image
-3. The detected emotion will be displayed along with the processed image
+1. Upload a grayscale image (48x48 pixels) using the file uploader
+2. The app will automatically process the image and show:
+   - The uploaded image with the predicted emotion
+   - A bar chart showing the probability distribution across all emotions
 
 ## Project Structure
 ```
@@ -55,6 +53,12 @@ emotion-recognition/
 ├── requirements.txt    # Project dependencies
 └── README.md          # Project documentation
 ```
+
+## Model Details
+- Architecture: SimpleRNN with dropout layers
+- Input: 48x48 grayscale images
+- Output: 7 emotion classes
+- Pre-trained model is included in the repository
 
 ## Contributing
 Feel free to submit issues and enhancement requests!
